@@ -1,0 +1,12 @@
+
+FEATURE SELECTION:
+Feature selection is one of the basic thing in the EDA process,as from the youtube videos i can say,this step is very very important in the
+model building.This selection determine our building model,as also the accuracy of the model depends on the feature selection.
+As also our 60 % to 70% of the time is gone in feature selection.
+
+Coming to the missing value part,
+To handle the missing values in the data set we have 3 steps involved;
+1)Deletion of the record->Strict note;this step has to be used only when the dataset is large,when the dataset is small avoid using it.
+2)Creating a separate model->more time,computations effort is also more(whichever are having the missing value,we can consider it as a test
+data,and remaining will be used for training data.
+3)Statistical method->It is the best method;mean(averge),median(after ascending and descending order ,middle value ),mode(frequency).
