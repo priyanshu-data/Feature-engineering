@@ -1,5 +1,35 @@
 
 FEATURE SELECTION:
+Feature selection is different from dimensionality reduction. Both methods seek to reduce the number of attributes in the dataset, but a dimensionality reduction method do so by creating new combinations of attributes, where as feature selection methods include and exclude attributes present in the data without changing them.
+
+
+Feature Selection Algorithms
+There are three general classes of feature selection algorithms: filter methods, wrapper methods and embedded methods.
+
+Filter Methods
+Filter feature selection methods apply a statistical measure to assign a scoring to each feature. The features are ranked by the score and either selected to be kept or removed from the dataset. The methods are often univariate and consider the feature independently, or with regard to the dependent variable.
+
+Some examples of some filter methods include the Chi squared test, information gain and correlation coefficient scores.
+
+Wrapper Methods
+Wrapper methods consider the selection of a set of features as a search problem, where different combinations are prepared, evaluated and compared to other combinations. A predictive model us used to evaluate a combination of features and assign a score based on model accuracy.
+
+The search process may be methodical such as a best-first search, it may stochastic such as a random hill-climbing algorithm, or it may use heuristics, like forward and backward passes to add and remove features.
+
+An example if a wrapper method is the recursive feature elimination algorithm.
+
+Embedded Methods
+Embedded methods learn which features best contribute to the accuracy of the model while the model is being created. The most common type of embedded feature selection methods are regularization methods.
+
+Regularization methods are also called penalization methods that introduce additional constraints into the optimization of a predictive algorithm (such as a regression algorithm) that bias the model toward lower complexity (fewer coefficients).
+
+Examples of regularization algorithms are the LASSO, Elastic Net and Ridge Regression.
+
+
+
+
+
+
 Feature selection is one of the basic thing in the EDA process,as from the youtube videos i can say,this step is very very important in the
 model building.This selection determine our building model,as also the accuracy of the model depends on the feature selection.
 As also our 60 % to 70% of the time is gone in feature selection.
