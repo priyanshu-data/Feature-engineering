@@ -1,0 +1,5 @@
+#now to check the levels in the airline feature.
+#to change the character level to numeric level.
+#dd$AIRLINE<-as.numeric(dd$AIRLINE)
+#is.numeric will find the numberic in that particular column(or even the whole data)
+#there are 14 factors in airline feature.

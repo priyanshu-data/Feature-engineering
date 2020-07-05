@@ -1,0 +1,13 @@
+#what is the need to check the multicollinearity?
+ANSWER : Firstly,perfect collinearity is very rare.
+1) parameters of the models becomes indeterminate(not leading to a conclusive result)
+2)standard errors becomes large.
+3)R^2 value are high.
+
+
+#multi-collinearity check
+
+
+The The easiest way for the detection of multicollinearity is to examine the correlation between each pair of explanatory variables. If two of the variables are highly correlated, then this may the possible source of multicollinearity. However, pair-wise correlation between the explanatory variables may be considered as the sufficient, but not the necessary condition for the multicollinearity.
+
+The second easy way for detecting the multicollinearity is to estimate the multiple regression and then examine the output carefully. The rule of thumb to doubt about the presence of multicollinearity is very high R^2 but most of the coefficients are not significant according to their p-values. However, this cannot be considered as an acid test for detecting multicollinearity. It will provide an apparent idea for the presence of multicollinearity.

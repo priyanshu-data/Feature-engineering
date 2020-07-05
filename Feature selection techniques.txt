@@ -1,0 +1,14 @@
+Feature selection techniques : It is required for the optimal selection of features,which will give best model with best accuracy.
+
+                              1)FILTER METHODS : We check relevance of a particular feature with the target feature,highly correlated,negatively correlated ans so on.
+                                a)IG(information gain)
+                                b)CHI-SQUARE TEST
+                                c)CORRELATION COEFFICIENT
+
+
+                              2)WRAPPER METHODS :Here we consider a single attribute with target variable and train them,then we take add a feature to the previous selected feature and buit the model,then we add another feature with the 2 selected feature and built the model
+                                a)Recursive feature elimination
+                                b)genetic algorithm
+
+                              3)EMBEDDED METHODS :
+                                a)Decision tree : to find the usefulness of the attributes.

@@ -1,0 +1,29 @@
+days of week - 872521
+cancelled - no=5729195
+            yes=89884(here we can also use visualization)
+
+a %>% 
+  group_by (AIRLINE) %>%
+  summarise(
+    mean_arrdelay= mean(ARRIVAL_DELAY, na.rm = T),
+    sd_arrdelay = sd(ARRIVAL_DELAY, na.rm = T),
+    max_arrdelay = max(ARRIVAL_DELAY, na.rm = T)
+    )
+(mean,sd,max for the airline )
+
+ plot of distance vs time in air
+
+to check the levels in the features
+print (c("YEAR:", levels (factor (df$YEAR))))
+print (c("MONTH:", levels (factor (df$MONTH))))
+print (c("DAY:", levels (factor (df$DAY))))
+print (c("DAY_OF_WEEK:", levels (factor (df$DAY_OF_WEEK))))
+
+
+to check the delay parametes only
+summary (df [,c("SCHEDULED_TIME","ELAPSED_TIME","AIR_TIME","ARRIVAL_DELAY","AIR_SYSTEM_DELAY","SECURITY_DELAY","AIRLINE_DELAY","LATE_AIRCRAFT_DELAY","WEATHER_DELAY")])
+
+
+
+to check the levels of a particular feature
+print (c("STATE:", levels (dfAirports$STATE)))

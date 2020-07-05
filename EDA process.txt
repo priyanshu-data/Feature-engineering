@@ -1,0 +1,110 @@
+These are the steps included in the preparation of the data :
+
+1)Variable identification
+2)Univariate analysis
+3)Bi-variate analysis
+4)Missing values treatment
+5)Outlier treatment
+6)Variable transformation 
+7)varaible creation
+
+
+1)Variable identification : First,we need to identify the predictor(input) and the target(output) variables.
+                            Next,identify the data type and category of the variables.
+
+                            Suppose we want to predict, whether the students will play cricket or not
+                           
+                            sudent_id  gender	prev_exam_marks	   height(cm)   weight(kg's)     play cricket
+                            41         M        65                 178          61               1
+                            42         F        75                 174          56               0
+	                    43         M        45                 163          62               1
+
+                            TYPE OF VARIABLE : 
+                            Predictor variable : Gender,Prev_exam_marks,height,weight
+                            Target variable : play cricket
+                            DATA TYPE :
+                            character :student_id,gender
+                            numeric : student_id,prev_exam_marks,height,weight,play criket
+		            CATEGORICAL : gender,playcricket
+			    continuous : prev_exam_marks,height,weight 
+
+2)Univariate analysis : Method to perform uni-variate analysis will depend on whether the variable type is categorical 
+                        or continuous.
+  
+                        CONTINUOUS VARIABLES:- In case of continuous variables, we need to understand the central tendency and spread of the variable. These are measured                           using various statistical metrics visualization methods as shown below:
+                        MEASURES OF CENTRAL TENDENCY : mean,median,mode,min,max
+                        MEASURES OF DISPERSION : range,quartile,IQR,variance,standard deviation,skewness and kurtosis.
+                        VISUALIZATION : histogram,boxplot,barplot,etc
+                        Univariate analysis is also used to highlight missing and outlier values.
+                        
+                        CATEGORICAL VARIABLES : Categorical Variables:- For categorical variables, we’ll use frequency table to understand distribution of each category.                         We can also read as percentage of values under each category. It can be be measured using two metrics, Count and Count% against each category. Bar                         chart can be used as visualization. 
+
+3)Bi-variate analysis : Continuous data type : 
+                       Bi-variate Analysis finds out the relationship between two variables. Here, we look for association and disassociation between variables at a pre-                          defined significance level. We can perform bi-variate analysis for any combination of categorical and continuous variables. The combination can be:                         Categorical & Categorical, Categorical & Continuous and Continuous & Continuous. Different methods are used to tackle these combinations during                             analysis process.
+ 
+                        While doing bi-variate analysis between two continuous variables, we should look at scatter plot. It is a nifty way to find out the relationship                         between two variables. The pattern of scatter plot indicates the relationship between variables. The relationship can be linear or non-linear. 
+                        Scatter plot shows the relationship between two variable but does not indicates the strength of relationship amongst them. To find the strength of                         the relationship, we use Correlation. Correlation varies between -1 and +1.
+
+                       -1: perfect negative linear correlation
+                       +1:perfect positive linear correlation and 
+                        0: No correlation
+                       Correlation can be derived using following formula:
+
+                       Categorical data type : 
+                       Two-way table: We can start analyzing the relationship by creating a two-way table of count and count%. The rows represents the category of one                        variable and the columns represent the categories of the other variable. We show count or count% of observations available in each combination of                        row and column categories.
+                       Stacked Column Chart: This method is more of a visual form of Two-way table.
+                       Chi-Square Test: This test is used to derive the statistical significance of relationship between the variables. Also, it tests whether the evidence                        in the sample is strong enough to generalize that the relationship for a larger population as well. Chi-square is based on the difference between                        the expected and observed frequencies in one or more categories in the two-way table. It returns probability for the computed chi-square                        distribution with the degree of freedom.
+
+                       Probability of 0: It indicates that both categorical variable are dependent
+
+                       Probability of 1: It shows that both variables are independent.
+
+                       Probability less than 0.05: It indicates that the relationship between the variables is significant at 95% confidence. The chi-square test statistic                        for a test of independence of two categorical variables is found by:
+
+                       Categorical & Continuous : While exploring relation between categorical and continuous variables, we can draw box plots for each level of                        categorical variables. If levels are small in number, it will not show the statistical significance. To look at the statistical significance we can                        perform Z-test, T-test or ANOVA.
+
+
+4)MISSING VALUE TREATMENT : missing data reduces accuracy,it can lead to wrong prediction.
+                           Methods are : 
+                           DELETION : deleting the row 
+                           MEAN:MEDIAN:MODE imputation
+                           KNN imputation
+
+5)OUTLIERS DETECTION AND TREATMENT :Most commonly used method to detect outliers is visualization. We use various visualization methods, like Box-plot, Histogram, Scatter                                     Plot (above, we have used box plot and scatter plot for visualization). Some analysts also various thumb rules to detect outliers. Some                                     of them are:
+
+                                    Any value, which is beyond the range of -1.5 x IQR to 1.5 x IQR
+                                    Use capping methods. Any value which out of range of 5th and 95th percentile can be considered as outlier
+                                    Data points, three or more standard deviation away from mean are considered outlier
+                                    Outlier detection is merely a special case of the examination of data for influential data points and it also depends on the business                                       understanding
+                                    Bivariate and multivariate outliers are typically measured using either an index of influence or leverage, or distance. Popular indices                                     such as Mahalanobis’ distance and Cook’s D are frequently used to detect outliers.
+                                    In SAS, we can use PROC Univariate, PROC SGPLOT. To identify outliers and influential observation, we also look at statistical measure                                      like STUDENT, COOKD, RSTUDENT and others.
+
+
+
+5)THE ART OF FEATURE ENGINEERING : Variable transformation.
+                                   Variable / Feature creation.
+                                   These two techniques are vital in data exploration and have a remarkable impact on the power of prediction. Let’s understand each of                                        this step in more details.
+
+
+                                  What is Variable Transformation?
+                                  In data modelling, transformation refers to the replacement of a variable by a function. For instance, replacing a variable x by the                                        square / cube root or logarithm x is a transformation. In other words, transformation is a process that changes the distribution or                                         relationship of a variable with others.
+
+                                  When we want to change the scale of a variable or standardize the values of a variable for better understanding. While this                                                 transformation is a must if you have data in different scales, this transformation does not change the shape of the variable distribution
+
+
+                                  Logarithm: Log of a variable is a common transformation method used to change the shape of distribution of the variable on a distribution                                   plot. It is generally used for reducing right skewness of variables. Though, It can’t be applied to zero or negative values as well.
+                                  Square / Cube root: The square and cube root of a variable has a sound effect on variable distribution. However, it is not as significant                                   as logarithmic transformation. Cube root has its own advantage. It can be applied to negative values including zero. Square root can be                                   applied to positive values including zero.
+                                  Binning: It is used to categorize variables. It is performed on original values, percentile or frequency. Decision of categorization                                   technique is based on business understanding. For example, we can categorize income in three categories, namely: High, Average and Low.                                   We can also perform co-variate binning which depends on the value of more than one variables.
+ 
+ 
+ 
+
+
+
+
+
+
+
+                       Correlation = Covariance(X,Y) / SQRT( Var(X)* Var(Y))
+
+   	
