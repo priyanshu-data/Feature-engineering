@@ -1,0 +1,48 @@
+d<-read.csv(choose.files())
+d1=d
+d1=d1[,-c(24:31)]
+d1$YEAR<-NULL#as it is a repeating number.
+d1$MONTH<-NULL
+d1$DAY<-NULL
+d1$DAY_OF_WEEK<-NULL
+d1$ORIGIN_AIRPORT<-as.numeric(d1$ORIGIN_AIRPORT)
+d1$TAIL_NUMBER<-as.numeric(d1$TAIL_NUMBER)
+d1$DESTINATION_AIRPORT<-as.numeric(d1$DESTINATION_AIRPORT)
+d1$AIRLINE<-as.numeric(d1$AIRLINE)
+#as this 3 doesn't have any correlation
+
+#data exploration 
+library(DataExplorer)
+plot_missing(d1)#from this plot we can say approx 1.60% data is missing from certain features,so we can delete missing.
+d1<-na.omit(d1)
+plot_str(d1)
+plot_histogram(d1$DEPARTURE_DELAY)
+plot_correlation(d1)
+#from correlation plot i can say airline,flight_number,tail_number,origin_airport,
+#destination_airport,taxi_in,taxi_out
+#Also arrival_delay and departure_delay are highly correrable,we can neglect one of the feature.
+d2=d1
+#creating a model
+model1<-lm(d1$DEPARTURE_DELAY~.,data=d2)
+summary(model1)
+#from these two analysis taxi_in and taxi_out are not correlated,we can delete them
+d2$TAXI_OUT<-NULL
+d2$TAXI_IN<-NULL
+d2$ARRIVAL_DELAY<-NULL
+plot_correlation(d2)
+#now i have the best features excluding first 5 features,they are not useful for the analysis but at the end they are required.
+
+#now checking the outliers
+plot_histogram(d2$DEPARTURE_DELAY)
+
+#building model without treating outliers
+set.seed(123)
+ind <- sample(2, nrow(d2), replace = TRUE, prob = c(0.7,0.3))
+delay_train <- d2[ind==1,]
+delay_test  <- d2[ind==2,]
+
+#using boosting techniques.
+library(mboost)
+boost1<-glmboost(DEPARTURE_DELAY~SCHEDULED_DEPARTURE+DEPARTURE_TIME+WHEELS_OFF+SCHEDULED_TIME+
+                   ELAPSED_TIME+AIR_TIME+DISTANCE+WHEELS_ON+SCHEDULED_ARRIVAL+ARRIVAL_TIME,data = delay_train,
+                 center = TRUE, control = boost_control(trace = TRUE, mstop = 50))
