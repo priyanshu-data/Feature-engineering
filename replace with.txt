@@ -1,0 +1,2 @@
+REPLACE WITH SOME OTHER
+datasetname=datasetname.replace(to_replace=['YES','NO'],value=['1','0']

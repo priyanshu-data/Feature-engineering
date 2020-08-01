@@ -1,0 +1,3 @@
+REMOVAL OF DUPLICATES FROM DATA IN PYTHON
+datasetname.duplicated().sum()
+datasetname.drop_duplicates() 
