@@ -1,0 +1,25 @@
+#plot boxplot
+library required is seaborn as sns
+
+code :
+     sns.boxplot(dataset_name["features name"],showmeans=True)
+
+
+
+#treatment code :(deletion)
+    
+       new dataset name=dataset[dataset.featurename<= or >= the value of the 75% covered by boxpot]
+
+
+
+imputation :
+          
+      dataset["new_fature_name"]=np.where(df["feature name with outlier"]>= or <=75% or 25% value depends on the condition,df["feature name with outlier"])
+
+
+
+
+
+
+
+

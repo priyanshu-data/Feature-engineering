@@ -1,0 +1,25 @@
+#TO FILL MISISNG VALUES WITH 0
+dataset["column name"].fillna(0,inplace=True)
+
+
+
+
+
+#TO FILL MISSING WITH MEAN INA PARTICULAR FEATURE
+Dataset['column name'].fillna(dataset["column name"].mean(),inplace=True)
+
+
+
+
+
+#CONVERTING WORDS INTO INTEGER
+EXAMPLE:     x       y
+             one     ef
+             two      gb
+             three     vefv
+the value in x feature need to convert it into numericals value.
+
+def convert_to_int(word):
+   word_dict={'one':1,'two':2,'zero':0}
+ return word_dict[word]
+X['experience']=X['experience'].apply(lambda x: convert_to_int(x))
